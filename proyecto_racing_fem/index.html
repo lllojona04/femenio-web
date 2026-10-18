@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido - Racing Fem</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="welcome-body">
+
+  <div id="loader-overlay">
+    <div class="spinner"></div>
+    <p style="font-weight: bold; letter-spacing: 1px;">CARGANDO RACING FEM...</p>
+  </div>
+
+  <div class="welcome-card">
+    <div class="welcome-logo">RF</div>
+    <h1 class="welcome-title">RACING FEM</h1>
+    <p class="welcome-subtitle">Portal Oficial del Equipo de Fútbol Femenino</p>
+
+    <div class="welcome-buttons">
+      <a href="inicio.html" class="btn-welcome-user">Usuario normal</a>
+      <a href="admin/login.html" class="btn-welcome-admin">Administrador</a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader-overlay').style.display = 'none';
+      }, 800);
+    });
+  </script>
+</body>
+</html>

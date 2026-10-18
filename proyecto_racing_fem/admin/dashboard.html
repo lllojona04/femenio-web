@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Racing Fem</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <header class="header-main">
+    <div class="nav-container">
+      <div class="brand-logo">
+        <div class="logo-escudo">ADM</div>
+        <span class="brand-title">PANEL DE ADMINISTRACIÓN</span>
+      </div>
+      <div>
+        <button id="btn-export-data" class="btn-primary" style="margin-right:10px;">Exportar Datos JSON</button>
+        <button id="btn-logout" class="btn-primary" style="background:#C0392B; color:white;">Cerrar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- ANALÍTICA GLOBAL Y GEOLOCALIZACIÓN DE VISITAS -->
+    <section style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--sombra); margin-bottom:2rem; border-top: 5px solid var(--dorado);">
+      <h3 style="color:var(--verde-oscuro); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+        🌍 Analítica Global & Geolocalización de Visitas
+      </h3>
+      <p style="color:#666; font-size:0.9rem; margin-bottom:1.2rem;">
+        Registro de conexiones en tiempo real indicando desde qué zona del mundo se accede a la web.
+      </p>
+
+      <div class="table-responsive">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>País</th>
+              <th>Ciudad</th>
+              <th>Dirección IP</th>
+              <th>Página Visitada</th>
+              <th>Fecha y Hora</th>
+            </tr>
+          </thead>
+          <tbody id="admin-visits-table">
+            <!-- Renderizado por JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- REGISTRO DE VOTANTES Y ENCUESTAS -->
+    <section style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--sombra); margin-bottom:2rem; border-top: 5px solid var(--verde-oscuro);">
+      <h3 style="color:var(--verde-oscuro); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+        🗳️ Registro Detallado de Votantes en Encuestas
+      </h3>
+      <p style="color:#666; font-size:0.9rem; margin-bottom:1.2rem;">
+        Listado con el nombre de cada persona que ha votado, qué opción eligió y desde dónde votó.
+      </p>
+
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Nombre del Votante</th>
+              <th>Opción Votada</th>
+              <th>Ubicación</th>
+              <th>Fecha y Hora</th>
+            </tr>
+          </thead>
+          <tbody id="admin-voters-table">
+            <!-- Renderizado por JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Encuestas Activas/Inactivas</h4>
+      <div class="table-responsive">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Pregunta</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="admin-polls-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GESTION DE JUGADORAS -->
+    <section style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--sombra); margin-bottom:2rem;">
+      <h3 style="color:var(--verde-oscuro); margin-bottom:1rem;">Añadir Jugadora</h3>
+      <form id="form-add-player" style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <input type="text" id="player-name" placeholder="Nombre (ej: Inés)" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;">
+        <input type="text" id="player-fullname" placeholder="Nombre y Apellidos completos" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC; flex:1;">
+        <input type="text" id="player-age" placeholder="Edad (ej: 23 años)" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;">
+        <input type="text" id="player-origin" placeholder="Procedencia (ej: Granada - España)" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC; flex:1;">
+        <select id="player-cat" style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;">
+          <option value="PORTERAS">PORTERAS</option>
+          <option value="DEFENSAS">DEFENSAS</option>
+          <option value="CENTROCAMPISTAS">CENTROCAMPISTAS</option>
+          <option value="DELANTERAS">DELANTERAS</option>
+        </select>
+        <input type="text" id="player-pos" placeholder="Demarcación (ej: Portera)" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;">
+        <button type="submit" class="btn-primary">Añadir Jugadora</button>
+      </form>
+
+      <h4>Listado de Jugadoras (22)</h4>
+      <div class="table-responsive">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Nombre Completo</th>
+              <th>Edad</th>
+              <th>Procedencia</th>
+              <th>Categoría</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="admin-squad-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GESTION DE PARTIDOS -->
+    <section style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--sombra); margin-bottom:2rem;">
+      <h3 style="color:var(--verde-oscuro); margin-bottom:1rem;">Gestión de Partidos y Marcadores</h3>
+      <div class="table-responsive">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Jornada/Fase</th>
+              <th>Encuentro</th>
+              <th>Marcador</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="admin-matches-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GESTION DE NOTICIAS -->
+    <section style="background:white; padding:1.5rem; border-radius:8px; box-shadow:var(--sombra); margin-bottom:2rem;">
+      <h3 style="color:var(--verde-oscuro); margin-bottom:1rem;">Publicar Noticia</h3>
+      <form id="form-add-news" style="display:flex; flex-direction:column; gap:0.8rem; margin-bottom:1.5rem;">
+        <input type="text" id="news-title-input" placeholder="Título de la noticia" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;">
+        <textarea id="news-summary-input" placeholder="Resumen de la noticia..." rows="3" required style="padding:0.5rem; border-radius:4px; border:1px solid #CCC;"></textarea>
+        <button type="submit" class="btn-primary" style="align-self:flex-start;">Publicar Noticia</button>
+      </form>
+
+      <h4>Noticias Publicadas</h4>
+      <div class="table-responsive">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Fecha</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="admin-news-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../js/site-data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

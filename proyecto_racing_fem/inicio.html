@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Racing Fem</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="header-main">
+    <div class="nav-container">
+      <a href="inicio.html" class="brand-logo">
+        <div class="logo-escudo">RF</div>
+        <span class="brand-title">RACING FEM</span>
+      </a>
+      <div class="hamburger" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="inicio.html" class="active">Inicio</a></li>
+        <li><a href="plantilla.html">Plantilla</a></li>
+        <li><a href="partidos.html">Partidos</a></li>
+        <li><a href="resultados.html">Resultados</a></li>
+        <li><a href="clasificacion.html">Clasificación</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="encuestas.html">Encuestas</a></li>
+        <li><a href="admin/login.html" class="btn-admin-link">Acceso Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- CARRUSEL PRINCIPAL -->
+    <div class="hero-carousel" id="hero-carousel">
+      <button class="carousel-nav-btn prev" id="carousel-prev">&#10094;</button>
+      <button class="carousel-nav-btn next" id="carousel-next">&#10095;</button>
+
+      <div class="carousel-slide active" style="background-image: linear-gradient(rgba(11, 59, 36, 0.4), rgba(11, 59, 36, 0.8)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80');">
+        <div class="carousel-overlay">
+          <div class="carousel-content">
+            <h2>RACING FEM</h2>
+            <p>Pasión, Orgullo y Pasión por el Fútbol Femenino</p>
+            <a href="plantilla.html" class="btn-primary">Conoce al equipo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-slide" style="background-image: linear-gradient(rgba(11, 59, 36, 0.4), rgba(11, 59, 36, 0.8)), url('https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1200&q=80');">
+        <div class="carousel-overlay">
+          <div class="carousel-content">
+            <h2>LIGA 2ª FEDERACIÓN</h2>
+            <p>Acompaña a las jugadoras en cada jornada de la temporada</p>
+            <a href="partidos.html" class="btn-primary">Ver Calendario</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-indicators" id="carousel-indicators"></div>
+    </div>
+
+    <!-- SECCIÓN PARTIDOS (IMMEDIATAMENTE DEBAJO DEL CARROUSEL) -->
+    <section class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+        <h2 class="section-title" style="margin-bottom:0;">PARTIDOS</h2>
+        <div>
+          <button id="match-scroll-left" class="btn-primary" style="padding:0.3rem 0.8rem;">&#10094;</button>
+          <button id="match-scroll-right" class="btn-primary" style="padding:0.3rem 0.8rem;">&#10095;</button>
+        </div>
+      </div>
+
+      <div class="matches-carousel-wrapper">
+        <div class="matches-container" id="home-matches-carousel">
+          <!-- Renderizado por JS -->
+        </div>
+      </div>
+
+      <div style="text-align: right;">
+        <a href="partidos.html" style="color: var(--verde-oscuro); font-weight: bold; text-decoration: none;">Ver todos los partidos &#8594;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3 style="color:var(--dorado);">RACING FEM</h3>
+        <p style="font-size: 0.9rem;">Web oficial de seguimiento y gestión deportiva.</p>
+      </div>
+      <div>
+        <a href="admin/login.html" style="color:var(--dorado); text-decoration:none; font-weight:bold;">Panel de Administración</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Racing Fem - Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="js/site-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/public-pages.js"></script>
+</body>
+</html>

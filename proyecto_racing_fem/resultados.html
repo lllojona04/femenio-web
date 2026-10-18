@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados - Racing Fem</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="header-main">
+    <div class="nav-container">
+      <a href="inicio.html" class="brand-logo">
+        <div class="logo-escudo">RF</div>
+        <span class="brand-title">RACING FEM</span>
+      </a>
+      <div class="hamburger" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="plantilla.html">Plantilla</a></li>
+        <li><a href="partidos.html">Partidos</a></li>
+        <li><a href="resultados.html" class="active">Resultados</a></li>
+        <li><a href="clasificacion.html">Clasificación</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="encuestas.html">Encuestas</a></li>
+        <li><a href="admin/login.html" class="btn-admin-link">Acceso Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">RESULTADOS DISPUTADOS</h2>
+    <div class="squad-grid" id="results-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <!-- Renderizado por JS -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">&copy; 2026 Racing Fem</div>
+  </footer>
+
+  <script src="js/site-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/public-pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Admin - Racing Fem</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="welcome-body">
+
+  <div class="welcome-card" style="max-width: 400px;">
+    <div class="welcome-logo">🔐</div>
+    <h2 class="welcome-title">ACCESO PANEL ADMIN</h2>
+    <p class="welcome-subtitle">Introduce las credenciales de gestión</p>
+
+    <form id="login-form" style="display:flex; flex-direction:column; gap:1rem; text-align:left;">
+      <div>
+        <label style="font-weight:bold; color:var(--verde-oscuro);">Usuario</label>
+        <input type="text" id="username" required style="width:100%; padding:0.8rem; border-radius:6px; border:1px solid #CCC; margin-top:0.3rem;">
+      </div>
+      <div>
+        <label style="font-weight:bold; color:var(--verde-oscuro);">Contraseña</label>
+        <input type="password" id="password" required style="width:100%; padding:0.8rem; border-radius:6px; border:1px solid #CCC; margin-top:0.3rem;">
+      </div>
+      <button type="submit" class="btn-welcome-admin" style="margin-top:1rem; border:none; cursor:pointer;">Entrar al Panel</button>
+    </form>
+    
+    <div style="margin-top: 1.5rem;">
+      <a href="../inicio.html" style="color:var(--verde-oscuro); text-decoration:none; font-size:0.9rem; font-weight:bold;">&#8592; Volver a la web</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+
+      // Credenciales solicitadas
+      const expectedUser = 'lllojona'.replace('a', 'a');
+      const expectedPass = 'Jonamellidm04..';
+
+      if (u === expectedUser && p === expectedPass) {
+        localStorage.setItem('admin_logged', 'true');
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Credenciales incorrectas.');
+      }
+    });
+  </script>
+</body>
+</html>
